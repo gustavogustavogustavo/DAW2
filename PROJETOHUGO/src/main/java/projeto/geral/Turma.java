@@ -3,12 +3,17 @@ package projeto.geral;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Turma implements Identificavel{
 
 	@Id
+	@GeneratedValue(generator="turma_seq", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name="turma_seq")
 	private Long id;
 	private Disciplina nome;
 	private Professor docente;
