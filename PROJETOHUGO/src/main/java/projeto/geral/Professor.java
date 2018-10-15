@@ -15,7 +15,9 @@ public class Professor implements Identificavel{
 	@GeneratedValue(generator="professor_seq", strategy=GenerationType.SEQUENCE)
 	@SequenceGenerator(name="professor_seq")
 	private Long id;
-	private String nome;
+	private String username;
+	private String password;
+	private String grupo;
 	private ArrayList<Turma> responsavel;
 	private Disciplina formacao;
 
@@ -28,11 +30,11 @@ public class Professor implements Identificavel{
 	}
 
 	public String getNome() {
-		return nome;
+		return username;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNome(String username) {
+		this.username = username;
 	}
 
 	public ArrayList<Turma> getResponsavel() {

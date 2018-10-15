@@ -50,7 +50,7 @@ public class ProfessorBean implements Serializable {
 	public String getProfessorLogin() {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
-		Principal professorPrincipal = externalContext.getProfessorPrincipal();
+		Principal professorPrincipal = externalContext.getUserPrincipal();
 		if (professorPrincipal == null) {
 			return "";
 		}
@@ -70,7 +70,7 @@ public class ProfessorBean implements Serializable {
 	public boolean isProfessorInRole(String role) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
-		return externalContext.isProfessorInRole(role);
+		return externalContext.isUserInRole(role);
 	}
 
 	public void remove(Professor entidade) {

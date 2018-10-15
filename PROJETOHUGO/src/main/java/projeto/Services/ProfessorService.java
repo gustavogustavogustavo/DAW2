@@ -29,7 +29,6 @@ public class ProfessorService implements Serializable, Service<Professor> {
 		public void remove(Professor e) {
 			professorDAO.remove(e);
 		}
-
 		@Override
 		public Professor getByID(long id) {
 			return professorDAO.getByID(id);
