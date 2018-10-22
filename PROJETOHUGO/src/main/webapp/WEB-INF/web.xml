@@ -18,4 +18,33 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  <login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>dawJdbcRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/pages/public/login.xhtml</form-login-page>
+			<form-error-page>/pages/public/login.xhtml?error=true</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Área protegida</web-resource-name>
+			<description />
+			<url-pattern>private/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description />
+			<role-name>POFESSORES</role-name>
+			<role-name>OUTROS</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>PROFESSORES</role-name>
+	</security-role>
+	<security-role>
+		<role-name>OUTROS</role-name>
+	</security-role>
 </web-app>
