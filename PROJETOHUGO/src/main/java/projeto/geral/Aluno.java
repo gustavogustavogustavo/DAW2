@@ -7,15 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Aluno implements Identificavel{
+public class Aluno implements Identificavel {
 
 	private Long matricula;
 	@Id
-	@GeneratedValue(generator="aluno_seq", strategy=GenerationType.SEQUENCE)
-	@SequenceGenerator(name="aluno_seq")
+	@GeneratedValue(generator = "aluno_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "aluno_seq")
 	private Long id;
 	private String nomeAluno;
-	private Turma nomeDisciplina;
 
 	public Long getMatricula() {
 		return matricula;
@@ -39,14 +38,6 @@ public class Aluno implements Identificavel{
 
 	public void setNomeAluno(String nomeAluno) {
 		this.nomeAluno = nomeAluno;
-	}
-
-	public Turma getNomeDisciplina() {
-		return nomeDisciplina;
-	}
-
-	public void setNomeDisciplina(Turma nomeDisciplina) {
-		this.nomeDisciplina = nomeDisciplina;
 	}
 
 

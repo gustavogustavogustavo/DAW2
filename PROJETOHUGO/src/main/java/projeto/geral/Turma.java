@@ -1,24 +1,35 @@
 package projeto.geral;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Turma implements Identificavel{
+public class Turma implements Identificavel {
 
 	@Id
-	@GeneratedValue(generator="turma_seq", strategy=GenerationType.SEQUENCE)
-	@SequenceGenerator(name="turma_seq")
+	@GeneratedValue(generator = "turma_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "turma_seq")
 	private Long id;
-	private Disciplina nome;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_professor")
 	private Professor docente;
 	private ArrayList<Aluno> discentes;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_disciplina")
+	private Disciplina disciplina;
 
 	public Long getId() {
 		return id;
@@ -26,22 +37,6 @@ public class Turma implements Identificavel{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Disciplina getNome() {
-		return nome;
-	}
-
-	public void setNome(Disciplina nome) {
-		this.nome = nome;
-	}
-
-	public Professor getDocente() {
-		return docente;
-	}
-
-	public void setDocente(Professor docente) {
-		this.docente = docente;
 	}
 
 	public ArrayList<Aluno> getDiscentes() {

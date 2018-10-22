@@ -1,7 +1,5 @@
 package projeto.geral;
 
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +17,7 @@ public class Professor implements Identificavel{
 	private String username;
 	private String password;
 	private String grupo;
-	private ArrayList<Turma> responsavel;
+	
 	@OneToOne
 	private Disciplina formacao;
 
@@ -39,14 +37,7 @@ public class Professor implements Identificavel{
 		this.username = username;
 	}
 
-	public ArrayList<Turma> getResponsavel() {
-		return responsavel;
-	}
-
-	public void setResponsavel(ArrayList<Turma> responsavel) {
-		this.responsavel = responsavel;
-	}
-
+	
 	public Disciplina getFormacao() {
 		return formacao;
 	}
